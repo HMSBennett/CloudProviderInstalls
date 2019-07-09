@@ -1,6 +1,8 @@
+sudo apt-get install jq
+
 curl https://sdk.cloud.google.com | bash
 
-gcloud compute project-info add-metadata --metadatagoogle-compute-default-region=europe-west1,google-compute-default-zone=europe-west1-b
+gcloud compute project-info add-metadata --metadata google-compute-default-region=europe-west1,google-compute-default-zone=europe-west1-b
 
 echo 'GCLOUD_CONFIG=$(gcloud config list --format json)' >> .bashrc
 echo 'GCLOUD_PROJECT=$(echo -n $(GCLOUD_CONFIG) | jq -r ".core.project")' >> .bashrc
